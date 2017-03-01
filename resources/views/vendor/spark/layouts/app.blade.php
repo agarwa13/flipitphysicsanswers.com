@@ -19,6 +19,9 @@
     <!-- Scripts -->
     @yield('scripts', '')
 
+    <!-- Header Scripts -->
+    @stack('header-scripts')
+
     <!-- Global Spark Object -->
     <script>
         window.Spark = <?php echo json_encode(array_merge(
@@ -49,5 +52,9 @@
     <!-- JavaScript -->
     <script src="/js/app.js"></script>
     <script src="/js/sweetalert.min.js"></script>
+
+    <!-- Footer Scripts -->
+    @stack('footer-scripts')
+
 </body>
 </html>

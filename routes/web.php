@@ -14,3 +14,12 @@
 Route::get('/', 'WelcomeController@show');
 
 Route::get('/home', 'HomeController@show');
+
+/**
+ * Resource Controllers
+ */
+Route::post('/question/{slug}/solution','QuestionController@solve');
+Route::resource('/course','CourseController');
+Route::resource('/subject','SubjectController');
+Route::resource('/chapter','ChapterController');
+Route::resource('/question','QuestionController');

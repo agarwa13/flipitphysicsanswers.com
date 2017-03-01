@@ -13,11 +13,11 @@ class SparkServiceProvider extends ServiceProvider
      * @var array
      */
     protected $details = [
-        'vendor' => 'Your Company',
-        'product' => 'Your Product',
-        'street' => 'PO Box 111',
-        'location' => 'Your Town, NY 12345',
-        'phone' => '555-555-5555',
+        'vendor' => 'Engineering Mastered',
+        'product' => 'FlipIt Physics Answers',
+        'street' => '2900 1st Ave APT N302',
+        'location' => 'Seattle, WA 98121',
+        'phone' => '217-766-4628',
     ];
 
     /**
@@ -25,7 +25,7 @@ class SparkServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $sendSupportEmailsTo = null;
+    protected $sendSupportEmailsTo = 'nikhil@bloggercasts.com';
 
     /**
      * All of the application developer e-mail addresses.
@@ -33,7 +33,7 @@ class SparkServiceProvider extends ServiceProvider
      * @var array
      */
     protected $developers = [
-        //
+        'nikhil@bloggercasts.com'
     ];
 
     /**
@@ -41,7 +41,7 @@ class SparkServiceProvider extends ServiceProvider
      *
      * @var bool
      */
-    protected $usesApi = true;
+    protected $usesApi = false;
 
     /**
      * Finish configuring Spark for the application.
@@ -50,17 +50,27 @@ class SparkServiceProvider extends ServiceProvider
      */
     public function booted()
     {
-        Spark::useStripe()->noCardUpFront()->trialDays(10);
+//        Spark::useStripe()->noCardUpFront()->trialDays(10);
+        Spark::useStripe();
 
-        Spark::freePlan()
+//        Spark::freePlan()
+//            ->features([
+//                'First', 'Second', 'Third'
+//            ]);
+
+        Spark::plan('FlipIt Physics Answers', 'fpa-monthly')
+            ->price(9.99)
             ->features([
-                'First', 'Second', 'Third'
+                'Full Access',
+                'Cancel Anytime'
             ]);
 
-        Spark::plan('Basic', 'provider-id-1')
-            ->price(10)
+        Spark::plan('FlipIt Physics Answers','fpa-yearly')
+            ->price(71.93)
+            ->yearly()
             ->features([
-                'First', 'Second', 'Third'
+                'Full Access',
+                '40% Discount'
             ]);
     }
 }
