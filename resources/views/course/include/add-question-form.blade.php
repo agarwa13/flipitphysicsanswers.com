@@ -60,6 +60,14 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Solved?</label>
+                            <div class="col-md-10">
+                                <input type="checkbox" name="solved" checked> Has this question been solved?
+                            </div>
+                        </div>
+
                         <!-- Login Button -->
                         <div class="form-group">
                             <div class="col-md-10 col-md-offset-2">

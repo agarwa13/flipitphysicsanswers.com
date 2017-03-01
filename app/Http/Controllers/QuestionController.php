@@ -50,9 +50,9 @@ class QuestionController extends Controller
         $question->body = $request->body;
         $question->chapter_id = $request->chapter_id;
         $question->solution = '';
+        $question->solved = ($request->solved) ? true : false;
         $question->save();
 
-        // Add Solution (including Question ID)
         $question->solution = 'solutions/solution-'.$question->id.'.php';
         $question->save();
 
